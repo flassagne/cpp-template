@@ -16,6 +16,7 @@ macro(run_conan)
     # files.
     #
     # Keyword args:
+    #     FILE: Install packages from conanfile.txt or conanfile.py file
     #     PACKAGES: List of packages to download with Conan.
     #     EXTRA_OPTIONS: Extra options for conan.
 
@@ -23,7 +24,7 @@ macro(run_conan)
     cmake_parse_arguments(
         CONAN
         ""
-        ""
+        "FILE"
         "PACKAGES;EXTRA_OPTIONS"
         ${ARGN}
     )
@@ -31,6 +32,8 @@ macro(run_conan)
     message("${PACKAGES}")
 
     conan_cmake_run(
+        CONANFILE
+            ${CONAN_FILE}
         REQUIRES
             ${CONAN_PACKAGES}
         OPTIONS
