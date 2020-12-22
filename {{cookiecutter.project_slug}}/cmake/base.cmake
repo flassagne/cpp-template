@@ -21,3 +21,6 @@ endif()
 
 include(cmake/cache.cmake)
 include(cmake/static_analyzers.cmake)
+{%- if cookiecutter.ide == "vscode" %}
+include(cmake/vscode.cmake)
+{% endif %}

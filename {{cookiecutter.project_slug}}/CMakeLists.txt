@@ -6,7 +6,7 @@ include(cmake/project_options.cmake)
 include(cmake/conan.cmake)
 
 conan(
-    # PACKAGES
+    # FILE or PACKAGES
 )
 
-add_subdirectory(src)
+add_subdirectory({{ cookiecutter.project_slug }})
