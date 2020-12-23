@@ -6,8 +6,9 @@
   ],
   "project_slug": "{% if cookiecutter.project_kind == 'library' %}lib{% endif %}{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "target_name": "{% if cookiecutter.project_kind == 'library' %}lib{% endif %}{{ cookiecutter.project_name.title().replace(' ', '') }}",
-  "ide": [
-    "vscode",
-    "none"
-  ]
+  "cmake_generator": "Ninja",
+  "build_dir": "build",
+  "cppcheck": false,
+  "clang_tidy": false,
+  "clangd": false
 }

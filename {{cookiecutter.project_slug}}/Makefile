@@ -1,13 +1,12 @@
 # Environment vars
-BIN_DIR := build
-GENERATOR := Ninja
+BUILD_DIR := build
 
 # Computed vars
-cmake_cmd := cmake -B ${BIN_DIR}
+cmake_cmd := cmake -B ${BUILD_DIR}
 
 
-cmake:
-	${cmake_cmd} -G${GENERATOR}
+configure:
+	${cmake_cmd}
 
 
 build:
@@ -26,4 +25,4 @@ clean:
 
 .PHONY: distclean
 distclean:
-	rm -rf ${BIN_DIR}
+	rm -rf ${BUILD_DIR}
