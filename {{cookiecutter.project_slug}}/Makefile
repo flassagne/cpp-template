@@ -5,24 +5,30 @@ BUILD_DIR := build
 cmake_cmd := cmake -B ${BUILD_DIR}
 
 
+all: configure build test
+
+
 configure:
-	${cmake_cmd}
+	${cmake_cmd} -G {{ cookiecutter.cmake_generator }} \
+		-D ENABLE_CPPCHECK={{ cookiecutter.cppcheck }} \
+		-D ENABLE_CLANG_TIDY={{ cookiecutter.clang_tidy}} \
+		-D ENABLE_CLANGD={{ cookiecutter.clangd }}
 
 
 build:
 	${cmake_cmd} build
 
 
-.PHONY: test
 test:
 	${cmake_cmd} --target test
 
 
-.PHONY: clean
 clean:
 	${cmake_cmd} --target clean
 
 
-.PHONY: distclean
 distclean:
 	rm -rf ${BUILD_DIR}
+
+
+.PHONY: build test clean distclean
