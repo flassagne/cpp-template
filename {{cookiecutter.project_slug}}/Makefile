@@ -16,7 +16,7 @@ configure:
 
 
 build:
-	${cmake_cmd} build
+	cmake --build ${BUILD_DIR}
 
 
 test:
